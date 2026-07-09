@@ -48,6 +48,8 @@ python examples/01_hello_agent.py
 | 10 | `10_a2a_server.py` | Serve an agent over the A2A protocol (one line) |
 | 11 | `11_a2a_client.py` | Reach a served agent by URL (single-shot + multi-turn) |
 | 12 | `12_agent_as_tool.py` | Let one agent call another via `a2a_tool` |
+| 13 | `13_custom_graph.py` | Customize an Agent's own graph (subclass + override `_build_workflow`) |
+| 14 | `14_custom_agent_node.py` | Override `_agent_node` to control the LLM step (RAG-style context injection) |
 
 > Examples 07 and 12 launch/need a second process — see the notes at the top of
 > each file. Example 09's Langfuse part is skipped unless `LANGFUSE_*` is set.
