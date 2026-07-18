@@ -45,10 +45,14 @@ class ModelRouter:
 
         If no provider prefix is given, the provider is inferred from the model
         name when possible (e.g. ``gpt-4o`` -> ``openai``).
+
+        Surrounding whitespace is stripped so a stray trailing space (a common
+        copy-paste slip) doesn't turn into a 404 model-not-found.
         """
+        model = model.strip()
         if ":" in model:
             provider, model_name = model.split(":", 1)
-            return provider.lower(), model_name
+            return provider.strip().lower(), model_name.strip()
 
         inferred = ModelRouter.infer_provider(model)
         if inferred:
